@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CollegeInfo = () => {
   const [nextItems, setNextItems] = useState(3);
@@ -47,45 +48,11 @@ const CollegeInfo = () => {
         />
       </div>
       <div>
-        {srcResult.map((result) => (
-          <div key={result._id}>
-            <p
-              onClick={(e) => (
-                <div className="card bg-base-100 shadow-xl w-full">
-                  <figure>
-                    <img
-                      className=" w-full h-80"
-                      src={e.college_image}
-                      alt="college"
-                    />
-                  </figure>
-                  <div className="card-body">
-                    <h2 className="card-title font-extrabold text-2xl">
-                      {e.college_name}
-                    </h2>
-                    <p>Admission Date: {e.admission_dates}</p>
-                    <div className=" flex justify-between">
-                      <div>
-                        <h2>Events:</h2>
-                        <li>{e.events[0]}</li>
-                        <li>{e.events[1]}</li>
-                        <li>{e.events[2]}</li>
-                      </div>
-                      <div>
-                        <h2>Sports:</h2>
-                        <li>{e.sports[0]}</li>
-                        <li>{e.sports[1]}</li>
-                        <li>{e.sports[2]}</li>
-                      </div>
-                    </div>
-                    <p>{e.research_history}</p>
-                  </div>
-                </div>
-              )}
-              className=" hover:bg-slate-300"
-            >
-              {result.college_name}
-            </p>
+        {srcResult.map((college) => (
+          <div key={college._id}>
+            <Link to={`details/${college._id}`} className=" hover:bg-slate-300">
+              {college.college_name}
+            </Link>
           </div>
         ))}
       </div>
@@ -120,6 +87,13 @@ const CollegeInfo = () => {
                   </div>
                 </div>
                 <p>{college.research_history}</p>
+                <div className="flex justify-center">
+                  <Link to={`details/${college._id}`}>
+                    <button className="btn btn-outline btn-info">
+                      View Details
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
