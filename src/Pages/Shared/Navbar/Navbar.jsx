@@ -24,11 +24,13 @@ const Navbar = () => {
   };
   return (
     <div>
-      <nav className="navbar md:flex-row  justify-between flex-col rounded mb-10 bg-gradient-to-r from-indigo-500">
+      <nav className="navbar md:flex-row  justify-between flex-col rounded mb-10 bg-gradient-to-r from-orange-300">
         <div className="flex flex-col gap-3">
           <img className="w-12 rounded-lg" src={logo} alt="" />
-          <h2 className="ml-2 text-4xl font-bold font-serif text-blue-950 title-name">
-            UniEduCare
+          <h2 className="ml-2 text-4xl font-bold font-serif  title-name">
+            <span className=" text-blue-700">
+              Uni<span className=" text-red-600">Edu</span>Care
+            </span>
           </h2>
         </div>
         <div className="text-1xl font-bold font-sans  md:flex-row flex-col link-nav">

@@ -68,19 +68,19 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 login-container mt-10 mb-10 rounded-2xl">
+      <div className="hero min-h-screen bg-gradient-to-r from-indigo-100 via-purple-200 to-pink-100 login-container mt-10 mb-10 rounded-2xl">
         <div className="hero-content flex-col gap-4">
           <div className=" w-16 flex justify-center">
             <img className="rounded-lg" src={logo} alt="" />
           </div>
           <div className=" w-full space-y-5">
             <h1 className="text-center">
-              <span className=" text-2xl text-sky-900 font-bold">
+              <span className=" text-2xl text-orange-500 font-bold">
                 Welcome to
               </span>{" "}
               <br />{" "}
-              <span className=" text-4xl text-purple-500 font-extrabold">
-                Melody Music School
+              <span className=" text-4xl text-blue-500 font-extrabold">
+                Uni <span className=" text-red-500">Edu</span> Care
               </span>
             </h1>
             <p className=" text-lg font-semibold text-sky-900 text-center">
@@ -89,7 +89,7 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body ">
-              <h1 className="text-5xl font-bold text-center mb-10 text-purple-500">
+              <h1 className="text-5xl font-bold text-center mb-10 text-orange-500">
                 Login{" "}
               </h1>
               <form onSubmit={handleLogin}>
@@ -136,7 +136,7 @@ const Login = () => {
                 </div>
                 <div className="form-control mt-6">
                   <input
-                    className="btn btn-secondary font-bold text-1xl"
+                    className="btn btn-warning font-bold text-1xl"
                     type="submit"
                     value="Login"
                   />
@@ -147,7 +147,7 @@ const Login = () => {
                   </div>
                   <button
                     onClick={handleGoogleSignin}
-                    className="btn btn-outline btn-secondary"
+                    className="btn btn-outline btn-warning"
                   >
                     Login with Google{" "}
                     <span className="text-xl ml-2 text-rose-400">

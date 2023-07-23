@@ -42,7 +42,7 @@ const CollegeInfo = () => {
         <input
           type="text"
           placeholder="Search Your Favorite University"
-          className="input input-bordered input-accent w-full max-w-xs"
+          className="input input-bordered input-warning w-full max-w-xs"
           value={input}
           onChange={(e) => handleChange(e.target.value)}
         />
@@ -89,7 +89,7 @@ const CollegeInfo = () => {
                 <p>{college.research_history}</p>
                 <div className="flex justify-center">
                   <Link to={`details/${college._id}`}>
-                    <button className="btn btn-outline btn-info">
+                    <button className="btn btn-outline btn-warning">
                       View Details
                     </button>
                   </Link>
@@ -100,9 +100,14 @@ const CollegeInfo = () => {
         ))}
       </div>
 
-      <div>
+      <div className=" flex justify-center">
         {nextItems < collegeinfo.length && collegeinfo.length > 3 && (
-          <button onClick={seeMoreHandler}>See More</button>
+          <button
+            onClick={seeMoreHandler}
+            className="btn btn-active btn-warning btn-sm"
+          >
+            See More
+          </button>
         )}
       </div>
     </div>

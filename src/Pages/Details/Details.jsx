@@ -19,7 +19,7 @@ const Details = () => {
         <div className="card-body">
           <p>Admission Date: {loadedCollege.admission_dates}</p>
           <p>Admission Process: {loadedCollege.admission_process}</p>
-          <div className=" flex justify-between">
+          <div className=" flex gap-10">
             <div>
               <h2>Events:</h2>
               <li>{loadedCollege.events[0]}</li>
@@ -33,7 +33,7 @@ const Details = () => {
               <li>{loadedCollege.research_works[2]}</li>
             </div>
           </div>
-          <div className=" flex justify-between">
+          <div className=" flex gap-10">
             <div>
               <h2>Sports Categories:</h2>
               <li>{loadedCollege.sports_categories[0]}</li>
