@@ -4,12 +4,13 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import logo from "../../assets/images/logo.png";
 
 import Swal from "sweetalert2";
-import { FaGoogle } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Register = () => {
   const [error, setError] = useState("");
 
-  const { createUser, userProfile, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, userProfile, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
@@ -33,13 +34,6 @@ const Register = () => {
       setError("Your password must be at least Six charecters");
       return;
     }
-    // else if (!/(?=.*[!@#$&*]) /.test(password)) {
-    //   setError("Please add at least one special charecter");
-    //   return;
-    // } else if (!/(?=.*[A-Z]) /.test(password)) {
-    //   setError("Please add at least one uppercase");
-    //   return;
-    // }
 
     createUser(email, password)
       .then((result) => {
@@ -49,7 +43,7 @@ const Register = () => {
           .then(() => {
             const saveUser = { name: name, email: email, photo: photo };
             console.log("user info");
-            fetch("https://melody-music-school-server-xi.vercel.app/users", {
+            fetch("http://localhost:5000/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -89,7 +83,42 @@ const Register = () => {
           email: loggedUser.email,
           photo: loggedUser.photoURL,
         };
-        fetch("https://melody-music-school-server-xi.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Register Successfull",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
+  };
+  const handleGithubSignin = () => {
+    signInWithGithub()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setError("");
+        const saveUser = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          photo: loggedUser.photoURL,
+        };
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -219,6 +248,15 @@ const Register = () => {
                     Login with Google{" "}
                     <span className="text-xl ml-2 text-rose-400">
                       <FaGoogle></FaGoogle>
+                    </span>
+                  </button>
+                  <button
+                    onClick={handleGithubSignin}
+                    className="btn btn-outline btn-warning mt-5"
+                  >
+                    Login with Github{" "}
+                    <span className="text-xl ml-2 text-rose-400">
+                      <FaGithub></FaGithub>
                     </span>
                   </button>
                 </div>

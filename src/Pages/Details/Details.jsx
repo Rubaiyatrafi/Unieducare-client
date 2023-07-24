@@ -17,37 +17,73 @@ const Details = () => {
           {loadedCollege.college_name}
         </h2>
         <div className="card-body">
-          <p>Admission Date: {loadedCollege.admission_dates}</p>
-          <p>Admission Process: {loadedCollege.admission_process}</p>
+          <p className=" text-xl font-bold">
+            Admission Date:{" "}
+            <span className=" text-base text-slate-500">
+              {loadedCollege.admission_dates}
+            </span>
+          </p>
+          <p className=" text-xl font-bold">
+            Admission Process:{" "}
+            <span className=" text-base text-slate-500">
+              {loadedCollege.admission_process}
+            </span>
+          </p>
           <div className=" flex gap-10">
             <div>
-              <h2>Events:</h2>
-              <li>{loadedCollege.events[0]}</li>
-              <li>{loadedCollege.events[1]}</li>
-              <li>{loadedCollege.events[2]}</li>
+              <h2 className=" text-lg font-bold">Events:</h2>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.events[0]}
+              </li>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.events[1]}
+              </li>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.events[2]}
+              </li>
             </div>
             <div>
-              <h2>Research Work:</h2>
-              <li>{loadedCollege.research_works[0]}</li>
-              <li>{loadedCollege.research_works[1]}</li>
-              <li>{loadedCollege.research_works[2]}</li>
+              <h2 className=" text-lg font-bold">Research Work:</h2>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.research_works[0]}
+              </li>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.research_works[1]}
+              </li>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.research_works[2]}
+              </li>
             </div>
           </div>
           <div className=" flex gap-10">
             <div>
-              <h2>Sports Categories:</h2>
-              <li>{loadedCollege.sports_categories[0]}</li>
-              <li>{loadedCollege.sports_categories[1]}</li>
-              <li>{loadedCollege.sports_categories[2]}</li>
+              <h2 className=" text-lg font-bold">Sports Categories:</h2>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.sports_categories[0]}
+              </li>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.sports_categories[1]}
+              </li>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.sports_categories[2]}
+              </li>
             </div>
             <div>
-              <h2>Sports:</h2>
-              <li>{loadedCollege.sports[0]}</li>
-              <li>{loadedCollege.sports[1]}</li>
-              <li>{loadedCollege.sports[2]}</li>
+              <h2 className=" text-lg font-bold">Sports:</h2>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.sports[0]}
+              </li>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.sports[1]}
+              </li>
+              <li className=" font-bold text-sm text-slate-500">
+                {loadedCollege.sports[2]}
+              </li>
             </div>
           </div>
-          <p>{loadedCollege.research_history}</p>
+          <p className=" text-base font-semibold text-slate-600">
+            {loadedCollege.research_history}
+          </p>
         </div>
       </div>
     </div>

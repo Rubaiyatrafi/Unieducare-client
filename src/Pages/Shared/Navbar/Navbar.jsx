@@ -24,7 +24,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <nav className="navbar md:flex-row  justify-between flex-col rounded mb-10 bg-gradient-to-r from-orange-300">
+      <nav className="navbar md:flex-row  justify-between flex-col rounded mb-10 bg-gradient-to-r from-orange-200">
         <div className="flex flex-col gap-3">
           <img className="w-12 rounded-lg" src={logo} alt="" />
           <h2 className="ml-2 text-4xl font-bold font-serif  title-name">
@@ -37,22 +37,24 @@ const Navbar = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/colleges">Colleges</NavLink>
           <NavLink to="/admission">Admission</NavLink>
-          <NavLink to="/mycollege">My College</NavLink>
 
           {user ? (
             <>
               <span className="navbar md:flex-row  justify-between flex-col ">
+                <NavLink to={`/mycollege/${user.email}`}>My College</NavLink>
                 <button onClick={handleSignout}>
                   <NavLink>Signout</NavLink>
                 </button>
-                <div className=" flex flex-col">
-                  <img
-                    className="w-10 rounded-full"
-                    src={user.photoURL}
-                    alt=""
-                  />
-                  <p className=" text-xs">{user.displayName}</p>
-                </div>
+                <NavLink to={`/profile/${user.email}`}>
+                  <div className=" flex flex-col items-center">
+                    <img
+                      className="w-10 rounded-full"
+                      src={user.photoURL}
+                      alt=""
+                    />
+                    <p className=" text-xs">{user.displayName}</p>
+                  </div>
+                </NavLink>
               </span>
             </>
           ) : (

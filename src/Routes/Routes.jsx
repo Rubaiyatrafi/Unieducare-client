@@ -7,6 +7,10 @@ import MyCollege from "../Pages/MyCollege/MyCollege";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Details from "../Pages/Details/Details";
+import PrivateRoute from "./PrivateRoute";
+import AdmissionForm from "../Pages/AdmissionForm/AdmissionForm";
+import NotFound from "../Pages/NotFound/NotFound";
+import Profile from "../Pages/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -26,8 +30,14 @@ export const router = createBrowserRouter([
         element: <Admission></Admission>,
       },
       {
-        path: "/mycollege",
-        element: <MyCollege></MyCollege>,
+        path: "/mycollege/:email",
+        element: (
+          <PrivateRoute>
+            <MyCollege></MyCollege>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/mycollege/${params.email}`),
       },
       {
         path: "/login",
@@ -37,12 +47,41 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/colleges/${params.id}`),
+      },
+      {
+        path: "/admissionform/:id",
+        element: (
+          <PrivateRoute>
+            <AdmissionForm></AdmissionForm>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/colleges/${params.id}`),
       },
     ],
+  },
+  {
+    path: "/profile/:email",
+    element: (
+      <PrivateRoute>
+        <Profile></Profile>
+      </PrivateRoute>
+    ),
+    loader: ({ params }) =>
+      fetch(`http://localhost:5000/users/${params.email}`),
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>,
   },
 ]);

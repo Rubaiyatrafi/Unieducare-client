@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -14,6 +15,7 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 const googleAuthProvider = new GoogleAuthProvider();
+const githubAuthProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,6 +33,10 @@ const AuthProvider = ({ children }) => {
   const signInWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleAuthProvider);
+  };
+
+  const signInWithGithub = () => {
+    return signInWithPopup(auth, githubAuthProvider);
   };
 
   const userProfile = (name, photo) => {
@@ -59,6 +65,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     signIn,
     signInWithGoogle,
+    signInWithGithub,
     userProfile,
     logOut,
   };

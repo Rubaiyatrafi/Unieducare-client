@@ -37,7 +37,10 @@ const CollegeInfo = () => {
       });
   }, []);
   return (
-    <div>
+    <div data-aos="fade-up" data-aos-duration="2000">
+      <h1 className=" text-center font-bold text-4xl text-blue-500">
+        Find Your Desire University in the World
+      </h1>
       <div className="flex justify-center items-center m-5">
         <input
           type="text"
@@ -51,7 +54,7 @@ const CollegeInfo = () => {
         {srcResult.map((college) => (
           <div key={college._id}>
             <Link to={`details/${college._id}`} className=" hover:bg-slate-300">
-              {college.college_name}
+              <p className=" text-center">{college.college_name}</p>
             </Link>
           </div>
         ))}
@@ -68,30 +71,44 @@ const CollegeInfo = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title font-extrabold text-2xl">
-                  {college.college_name}
-                </h2>
-                <p>Admission Date: {college.admission_dates}</p>
+                <p className=" text-xl font-bold">
+                  Admission Date:{" "}
+                  <span className=" text-lg font-bold text-slate-500">
+                    {college.admission_dates}
+                  </span>
+                </p>
                 <div className=" flex justify-between">
                   <div>
-                    <h2>Events:</h2>
-                    <li>{college.events[0]}</li>
-                    <li>{college.events[1]}</li>
-                    <li>{college.events[2]}</li>
+                    <h2 className=" text-xl font-bold">Events:</h2>
+                    <li className=" text-sm font-bold text-slate-500">
+                      {college.events[0]}
+                    </li>
+                    <li className=" text-sm font-bold text-slate-500">
+                      {college.events[1]}
+                    </li>
+                    <li className=" text-sm font-bold text-slate-500">
+                      {college.events[2]}
+                    </li>
                   </div>
                   <div>
-                    <h2>Sports:</h2>
-                    <li>{college.sports[0]}</li>
-                    <li>{college.sports[1]}</li>
-                    <li>{college.sports[2]}</li>
+                    <h2 className=" text-xl font-bold">Sports:</h2>
+                    <li className=" text-sm font-bold text-slate-500">
+                      {college.sports[0]}
+                    </li>
+                    <li className=" text-sm font-bold text-slate-500">
+                      {college.sports[1]}
+                    </li>
+                    <li className=" text-sm font-bold text-slate-500">
+                      {college.sports[2]}
+                    </li>
                   </div>
                 </div>
-                <p>{college.research_history}</p>
+                <p className=" font-medium text-slate-700">
+                  {college.research_history}
+                </p>
                 <div className="flex justify-center">
                   <Link to={`details/${college._id}`}>
-                    <button className="btn btn-outline btn-warning">
-                      View Details
-                    </button>
+                    <button className="btn btn-warning">View Details</button>
                   </Link>
                 </div>
               </div>
@@ -100,7 +117,7 @@ const CollegeInfo = () => {
         ))}
       </div>
 
-      <div className=" flex justify-center">
+      <div className=" flex justify-center m-10">
         {nextItems < collegeinfo.length && collegeinfo.length > 3 && (
           <button
             onClick={seeMoreHandler}

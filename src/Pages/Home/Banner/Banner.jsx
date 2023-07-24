@@ -9,11 +9,19 @@ const Banner = () => {
 
         <div className="absolute  flex  items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
           <div className="text-white space-y-7 pl-12 w-3/4">
-            <h2 className="text-6xl font-extrabold text-orange-400">
+            <h2
+              data-aos="fade-right"
+              data-aos-duration="2500"
+              className="text-6xl font-extrabold text-orange-400"
+            >
               Make Your <br /> <span className=" text-red-500">Soul</span> Free{" "}
               <br />& Better
             </h2>
-            <p className="font-semibold bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] p-3">
+            <p
+              data-aos="fade-left"
+              data-aos-duration="2500"
+              className="font-semibold bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] p-3"
+            >
               UniEducare is the best student consulting firm in the World. We
               can help you find the best subject, university, and preferred
               foreign country to fulfil your dream to study abroad and get

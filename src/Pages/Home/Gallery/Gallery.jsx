@@ -16,31 +16,37 @@ import images15 from "../../../assets/images/Graduation-15.jpg";
 
 const Gallery = () => {
   return (
-    <div>
-      <h1 className=" text-center">Gallery</h1>
+    <div className=" m-10">
+      <h1 className=" text-center text-orange-500 text-4xl font-bold m-10">
+        {" "}
+        <span className=" text-blue-400 font-extrabold text-2xl">
+          Our Photo
+        </span>{" "}
+        <br />G A L L E R Y
+      </h1>
       <div className="grid sm:grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-2 justify-items-center m-1">
-        <div>
+        <div data-aos="fade-right" data-aos-duration="2000">
           <img className=" w-screen h-96 rounded-xl" src={images1} alt="" />
         </div>
-        <div>
+        <div data-aos="fade-down" data-aos-duration="2000">
           <img className=" w-screen h-96 rounded-xl" src={images2} alt="" />
         </div>
-        <div>
+        <div data-aos="fade-left" data-aos-duration="2000">
           <img className=" w-screen h-96 rounded-xl" src={images3} alt="" />
         </div>
-        <div>
+        <div data-aos="flip-up" data-aos-duration="2000">
           <img className=" w-screen h-96 rounded-xl" src={images4} alt="" />
         </div>
-        <div>
+        <div data-aos="flip-down" data-aos-duration="2000">
           <img className=" w-screen h-96 rounded-xl" src={images5} alt="" />
         </div>
-        <div>
+        <div data-aos="flip-up" data-aos-duration="2000">
           <img className=" w-screen h-96 rounded-xl" src={images6} alt="" />
         </div>
         <div>
           <img className=" w-screen h-96 rounded-xl" src={images7} alt="" />
         </div>
-        <div>
+        <div data-aos="flip-down" data-aos-duration="2000">
           <img className=" w-screen h-96 rounded-xl" src={images8} alt="" />
         </div>
         <div>
